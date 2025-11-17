@@ -27,6 +27,25 @@ To get psx-feed, either fork this github repo or simply use Pypi via pip.
 $ pip install psx-feed
 ```
 
+## Usage
+```Python
+from psx import stocks, tickers
+import datetime
+
+# Get all available tickers
+all_tickers = tickers()
+print(f"Found {len(all_tickers)} tickers")
+
+# Test downloading sample data
+data = stocks("SILK", start=datetime.date(2023, 1, 1), end=datetime.date(2023, 1, 31))
+print(data)
+print(f"Downloaded {len(data)} rows of data for SILK")
+```
+
+## Example Usage
+- [demo.py](demo/demo.py)
+- [example.py](demo/example.py)
+
 ## Local Development Setup
 
 If you want to contribute to the project or modify it for your own needs, follow these steps to set up a local development environment:
