@@ -29,6 +29,173 @@ To get psx-data-reader, either fork this github repo or simply use Pypi via pip.
 $ pip install psx-data-reader
 ```
 
+## Local Development Setup
+
+If you want to contribute to the project or modify it for your own needs, follow these steps to set up a local development environment:
+
+### Prerequisites
+
+- Python 3.4 or higher
+- pip (Python package installer)
+- git (for cloning the repository)
+
+### Step 1: Clone the Repository
+
+```bash
+git clone git@github.com:abdur1547/psx-data-reader.git
+
+cd psx-data-reader
+```
+
+### Step 2: Create a Virtual Environment (Recommended)
+
+Create an isolated Python environment to avoid conflicts with other projects:
+
+```bash
+# Create virtual environment
+python -m venv venv
+
+# Activate virtual environment
+# On Linux/macOS:
+source venv/bin/activate
+# On Windows:
+# venv\Scripts\activate
+```
+
+### Step 3: Install in Development Mode
+
+Install the package in development mode along with all dependencies:
+
+```bash
+# Basic installation (editable mode)
+pip install -e .
+
+# Install with development dependencies (recommended for contributors)
+pip install -e .[dev]
+
+# Install with visualization dependencies
+pip install -e .[viz]
+
+# Install everything (dev + visualization)
+pip install -e .[all]
+
+# Alternative: Install from requirements files
+pip install -e . && pip install -r requirements-dev.txt
+```
+
+This installs the package in "editable" mode, meaning any changes you make to the source code will be immediately available without reinstalling.
+
+### Step 4: Verify Installation
+
+Test that the installation works correctly:
+
+```python
+# Run this in Python interpreter or create a test script
+from psx import stocks, tickers
+import datetime
+
+# Get all available tickers
+all_tickers = tickers()
+print(f"Found {len(all_tickers)} tickers")
+
+# Test downloading sample data
+data = stocks("SILK", start=datetime.date(2023, 1, 1), end=datetime.date(2023, 1, 31))
+print(f"Downloaded {len(data)} rows of data for SILK")
+```
+
+### Step 5: Project Structure
+
+```
+psx-data-reader/
+├── src/
+│   └── psx/
+│       ├── __init__.py      # Package initialization and exports
+│       ├── web.py           # Main data scraping functionality
+│       └── example.py       # Example usage with plotly visualization
+├── requirements-dev.txt     # Development dependencies
+├── requirements-viz.txt     # Visualization dependencies  
+├── setup.py                 # Package configuration and dependencies
+├── README.md               # This file
+├── LICENSE                 # MIT license
+└── images/                 # Example graphs and visualizations
+```
+
+### Step 6: Making Changes
+
+1. **Edit the source code** in the `src/psx/` directory
+2. **Test your changes** by running the example or your own test scripts
+3. **Create visualizations** using the example in `src/psx/example.py`
+
+### Step 7: Dependency Management
+
+#### Core Dependencies (automatically installed)
+The package automatically installs these core dependencies:
+
+- **pandas** - Data manipulation and analysis
+- **tqdm** - Progress bars for downloads
+- **beautifulsoup4** - HTML parsing for web scraping
+- **requests** - HTTP library for making web requests
+
+#### Optional Dependencies
+
+**Visualization extras** (`[viz]`):
+```bash
+pip install psx-data-reader[viz]
+# Includes: plotly, matplotlib, seaborn
+```
+
+**Development extras** (`[dev]`):
+```bash
+pip install psx-data-reader[dev]
+# Includes: pytest, black, flake8, mypy, sphinx, jupyter, etc.
+```
+
+#### Requirements Files
+
+For development, you can also use the requirements files:
+
+- **`requirements-dev.txt`** - Development tools (testing, linting, docs)
+- **`requirements-viz.txt`** - Visualization libraries
+
+```bash
+# Install development dependencies
+pip install -r requirements-dev.txt
+
+# Install visualization dependencies
+pip install -r requirements-viz.txt
+```
+
+#### Why No requirements.txt?
+
+For **pip packages**, dependencies are properly managed through `setup.py`'s `install_requires` and `extras_require`. A `requirements.txt` file is typically used for applications, not libraries. This approach:
+
+- ✅ Allows users to install only what they need
+- ✅ Enables optional features through extras
+- ✅ Follows Python packaging best practices
+- ✅ Avoids dependency conflicts in user environments
+
+### Step 8: Contributing
+
+1. **Fork** the repository on GitHub
+2. **Create a feature branch** (`git checkout -b feature/new-feature`)
+3. **Make your changes** and test them thoroughly
+4. **Commit your changes** (`git commit -am 'Add new feature'`)
+5. **Push to the branch** (`git push origin feature/new-feature`)
+6. **Create a Pull Request** on GitHub
+
+### Troubleshooting
+
+- **Import errors**: Make sure you've activated your virtual environment and installed in development mode
+- **Network issues**: The package requires internet access to scrape PSX data
+- **Missing data**: Some historical data might not be available for certain stocks
+
+### Development Tips
+
+- Use `python -m psx.example` to run the example visualization
+- Modify `src/psx/web.py` to add new scraping functionality
+- Test with different stock symbols and date ranges
+- Consider adding error handling for network timeouts
+
 ## Usage
 
 First, import stocks and tickers from psx

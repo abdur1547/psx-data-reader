@@ -5,16 +5,16 @@ with open("README.md", "r", encoding="utf-8") as file:
     long_description = file.read()
 
 setup(
-    name="psx-data-reader",                      # This is the name of the package
-    version="0.0.7",                             # The initial release version
+    name="psx-feed",                      # This is the name of the package
+    version="0.0.1",                             # The initial release version
     license='MIT',                               # Chose a license from here: https://help.github.com/articles/licensing-a-repository
     description="Pakistan Stock Exchange's Data Downloader",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    author="Muhammad Amir Abbasi",               # Full name of the author
-    author_email = 'muhammadamir5670@gmail.com', # Type in your E-Mail
-    url = 'https://github.com/MuhammadAmir5670/psx-data-reader',   # Provide either the link to your github or to your website
-    download_url = 'https://github.com/MuhammadAmir5670/psx-data-reader/archive/refs/tags/0.0.7.tar.gz',    # I explain this later on
+    author="Abdur Rahman",               # Full name of the author
+    author_email = 'khalil.ahmad1547@gmail.com', # Type in your E-Mail
+    url = 'https://github.com/abdur1547/psx-data-reader',   # Provide either the link to your github or to your website
+    download_url = 'https://github.com/abdur1547/psx-data-reader/archive/refs/tags/0.0.1.tar.gz',    # I explain this later on
     keywords = ['psx', 'Pakistan stock exchange', 'stocks data downloader', 'Pakistan stock exchange data'],   # Keywords that define your package best
 
 
@@ -39,4 +39,42 @@ setup(
         "beautifulsoup4",
         "requests"
     ],
+    extras_require={                            # Optional dependencies
+        'dev': [
+            'pytest>=6.0.0',
+            'pytest-cov>=2.10.0',
+            'black>=21.0.0',
+            'flake8>=3.9.0',
+            'isort>=5.0.0',
+            'mypy>=0.812',
+            'wheel>=0.36.0',
+            'twine>=3.4.0',
+            'sphinx>=4.0.0',
+            'sphinx-rtd-theme>=0.5.0',
+            'jupyter>=1.0.0',
+            'notebook>=6.0.0',
+        ],
+        'viz': [
+            'plotly>=5.0.0',
+            'matplotlib>=3.3.0',
+            'seaborn>=0.11.0',
+        ],
+        'all': [
+            'pytest>=6.0.0',
+            'pytest-cov>=2.10.0',
+            'black>=21.0.0',
+            'flake8>=3.9.0',
+            'isort>=5.0.0',
+            'mypy>=0.812',
+            'wheel>=0.36.0',
+            'twine>=3.4.0',
+            'sphinx>=4.0.0',
+            'sphinx-rtd-theme>=0.5.0',
+            'jupyter>=1.0.0',
+            'notebook>=6.0.0',
+            'plotly>=5.0.0',
+            'matplotlib>=3.3.0',
+            'seaborn>=0.11.0',
+        ]
+    },
 )
