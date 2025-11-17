@@ -112,9 +112,13 @@ psx-data-reader/
 │       ├── __init__.py      # Package initialization and exports
 │       ├── web.py           # Main data scraping functionality
 │       └── example.py       # Example usage with plotly visualization
+├── demo/
+│   ├── example.py           # Plotly visualization example
+│   └── simple_example.py    # Basic example without visualization
 ├── requirements-dev.txt     # Development dependencies
-├── requirements-viz.txt     # Visualization dependencies  
-├── setup.py                 # Package configuration and dependencies
+├── requirements-viz.txt     # Visualization dependencies
+├── pyproject.toml          # Modern Python packaging configuration (recommended)
+├── setup.py                # Legacy packaging configuration (deprecated)
 ├── README.md               # This file
 ├── LICENSE                 # MIT license
 └── images/                 # Example graphs and visualizations
@@ -165,6 +169,18 @@ pip install -r requirements-dev.txt
 pip install -r requirements-viz.txt
 ```
 
+#### Modern Python Packaging
+
+This project now uses **`pyproject.toml`** (the modern standard) for package configuration instead of the legacy `setup.py`. The `pyproject.toml` file includes:
+
+- ✅ **Modern packaging standards** (PEP 518, PEP 621)
+- ✅ **Tool configurations** (black, isort, mypy, pytest)
+- ✅ **Better dependency management**
+- ✅ **Enhanced metadata** and project URLs
+- ✅ **Improved Python version support** (3.8+)
+
+The old `setup.py` is kept for compatibility but `pyproject.toml` is now the primary configuration.
+
 #### Why No requirements.txt?
 
 For **pip packages**, dependencies are properly managed through `setup.py`'s `install_requires` and `extras_require`. A `requirements.txt` file is typically used for applications, not libraries. This approach:
@@ -195,6 +211,34 @@ For **pip packages**, dependencies are properly managed through `setup.py`'s `in
 - Modify `src/psx/web.py` to add new scraping functionality
 - Test with different stock symbols and date ranges
 - Consider adding error handling for network timeouts
+
+### Building and Publishing
+
+This project uses modern Python packaging with `pyproject.toml`:
+
+```bash
+# Build the package
+python -m build
+
+# Install build tools
+pip install build twine
+
+# Test the build
+./build_test.sh
+
+# Upload to PyPI (when ready)
+twine upload dist/*
+```
+
+### Package Testing
+
+```bash
+# Test basic functionality
+python demo/simple_example.py
+
+# Test with visualizations (requires [viz] extras)
+python demo/example.py
+```
 
 ## Usage
 
