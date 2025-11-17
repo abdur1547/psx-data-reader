@@ -5,13 +5,12 @@
 
 #### This package is maintained version of [MuhammadAmir5670/psx-data-reader](https://github.com/MuhammadAmir5670/psx-data-reader)
 
-# psx-data-reader
-with psx-data-reader, you can scrape the data of Pakistan stock exchange. psx-data-reader is super easy to use and handles everything for you. Just specify which company's stock data you want and how much you want, and the rest is done for you.
+# psx-feed
+with psx-feed, you can scrape the data of Pakistan stock exchange. psx-feed is super easy to use and handles everything for you. Just specify which company's stock data you want and how much you want, and the rest is done for you.
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/MuhammadAmir5670/psx-data-reader/Upload%20Python%20Package?style=flat-square&color=green) ![PyPI - Implementation](https://img.shields.io/pypi/implementation/psx-data-reader?style=flat-square&color=green) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/psx-data-reader?style=flat-square&color=informational)  ![PyPI](https://img.shields.io/pypi/v/psx-data-reader?style=flat-square&color=informational) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/MuhammadAmir5670/psx-data-reader?style=flat-square)  ![PyPI - Status](https://img.shields.io/pypi/status/psx-data-reader?style=flat-square&color=blueviolet) ![PyPI - Downloads](https://img.shields.io/pypi/dm/psx-data-reader?style=flat-square&color=red) ![GitHub issues](https://img.shields.io/github/issues-raw/MuhammadAmir5670/psx-data-reader?style=flat-square)  ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/MuhammadAmir5670/psx-data-reader?style=flat-square)
 
 ## Overview 
-The psx-data-reader was written with fast use in mind. It provides the following key features
+The psx-feed was written with fast use in mind. It provides the following key features
 
 - can scrape all historical data till current date
 - can scrape data for of multiple companies in a single line of code
@@ -23,10 +22,25 @@ In the following paragraphs, I am going to describe how you can get and use Scra
 
 ## Installation
 
-To get psx-data-reader, either fork this github repo or simply use Pypi via pip.
+To get psx-feed, either fork this github repo or simply use Pypi via pip.
 
 ```bash
-$ pip install psx-data-reader
+$ pip install psx-feed
+```
+
+## Usage
+```Python
+from psx import stocks, tickers
+import datetime
+
+# Get all available tickers
+all_tickers = tickers()
+print(f"Found {len(all_tickers)} tickers")
+
+# Test downloading sample data
+data = stocks("OGDC", start=datetime.date(2025, 1, 31), end=datetime.date(2025, 1, 31))
+print(data)
+print(f"Downloaded {len(data)} rows of data for OGDC")
 ```
 
 ## Local Development Setup
