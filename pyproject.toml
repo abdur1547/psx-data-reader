@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "psx-feed"
-version = "0.0.1"
+version = "0.0.1-beta-01"
 description = "Pakistan Stock Exchange's Data Downloader"
 readme = "README.md"
 license = {text = "MIT"}
