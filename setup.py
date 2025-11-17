@@ -39,4 +39,42 @@ setup(
         "beautifulsoup4",
         "requests"
     ],
+    extras_require={                            # Optional dependencies
+        'dev': [
+            'pytest>=6.0.0',
+            'pytest-cov>=2.10.0',
+            'black>=21.0.0',
+            'flake8>=3.9.0',
+            'isort>=5.0.0',
+            'mypy>=0.812',
+            'wheel>=0.36.0',
+            'twine>=3.4.0',
+            'sphinx>=4.0.0',
+            'sphinx-rtd-theme>=0.5.0',
+            'jupyter>=1.0.0',
+            'notebook>=6.0.0',
+        ],
+        'viz': [
+            'plotly>=5.0.0',
+            'matplotlib>=3.3.0',
+            'seaborn>=0.11.0',
+        ],
+        'all': [
+            'pytest>=6.0.0',
+            'pytest-cov>=2.10.0',
+            'black>=21.0.0',
+            'flake8>=3.9.0',
+            'isort>=5.0.0',
+            'mypy>=0.812',
+            'wheel>=0.36.0',
+            'twine>=3.4.0',
+            'sphinx>=4.0.0',
+            'sphinx-rtd-theme>=0.5.0',
+            'jupyter>=1.0.0',
+            'notebook>=6.0.0',
+            'plotly>=5.0.0',
+            'matplotlib>=3.3.0',
+            'seaborn>=0.11.0',
+        ]
+    },
 )

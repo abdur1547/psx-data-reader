@@ -1,0 +1,29 @@
+# Development dependencies
+# These are only needed for development, testing, and contributing
+
+# Testing frameworks
+pytest>=6.0.0
+pytest-cov>=2.10.0
+
+# Code formatting and linting
+black>=21.0.0
+flake8>=3.9.0
+isort>=5.0.0
+
+# Type checking
+mypy>=0.812
+
+# Development tools
+wheel>=0.36.0
+twine>=3.4.0
+
+# Documentation
+sphinx>=4.0.0
+sphinx-rtd-theme>=0.5.0
+
+# Example visualizations (optional)
+plotly>=5.0.0
+
+# Jupyter notebooks for development/examples
+jupyter>=1.0.0
+notebook>=6.0.0
